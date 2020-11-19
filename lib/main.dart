@@ -5,7 +5,17 @@ void main() => runApp(MaterialApp(
   //home object shows what is gonna showup in our home property
   ));
 
-class JustinId extends StatelessWidget {
+class JustinId extends StatefulWidget {
+
+
+  @override
+  _JustinIdState createState() => _JustinIdState();
+}
+
+class _JustinIdState extends State<JustinId> {
+
+  int level = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,6 +25,17 @@ class JustinId extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.grey[900],
     ),
+
+      floatingActionButton:FloatingActionButton(
+        onPressed: () {
+         setState(() {
+           level += 1;
+         });
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.grey[800],
+        elevation: 0.0,
+      ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
         child: Column(
@@ -82,7 +103,26 @@ class JustinId extends StatelessWidget {
                           fontWeight: FontWeight.bold
                 )
                 ),
+
               ],
+            ),
+            SizedBox(height: 30.0),
+            Text(
+                'LIKES',
+                style: TextStyle(
+                  color: Colors.grey[100],
+                  letterSpacing: 2.0,
+                )
+            ),
+            SizedBox(height: 10.0),
+            Text(
+                '$level',
+                style: TextStyle(
+                    color: Colors.amberAccent[100],
+                    letterSpacing: 2.0,
+                    fontSize: 28.0,
+                    fontWeight: FontWeight.bold
+                )
             ),
           ],
         )
